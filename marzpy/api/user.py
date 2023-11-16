@@ -2,6 +2,7 @@ from .send_requests import *
 
 
 class User:
+    
     def __init__(
         self,
         username: str,
@@ -17,6 +18,12 @@ class User:
         links=[],
         subscription_url="",
         excluded_inbounds={},
+        note="",
+        sub_updated_at=None,
+        sub_last_user_agent=None,
+        online_at=None,
+        on_hold_expire_duration=0,
+        on_hold_timeout=0
     ):
         self.username = username
         self.proxies = proxies
@@ -24,6 +31,8 @@ class User:
         self.expire = expire
         self.data_limit = data_limit
         self.data_limit_reset_strategy = data_limit_reset_strategy
+        self.sub_updated_at = sub_updated_at
+        self.sub_last_user_agent = sub_last_user_agent
         self.status = status
         self.used_traffic = used_traffic
         self.lifetime_used_traffic = lifetime_used_traffic
@@ -31,6 +40,10 @@ class User:
         self.links = links
         self.subscription_url = subscription_url
         self.excluded_inbounds = excluded_inbounds
+        self.note = note
+        self.online_at = online_at  # Добавьте эту строку
+        self.on_hold_expire_duration = on_hold_expire_duration
+        self.on_hold_timeout = on_hold_timeout
 
 
 class UserMethods:
